@@ -23,8 +23,10 @@ exponent(5, 5); // 3125
 function exponent(num, power) {
     if (power === 0) {
         return 1;
+    } else if (power < 0) {
+        return 1 / exponent(num, -power);
     } else {
-        return num ** power;
+        return num * exponent(num, power - 1);
     }
 }
 
